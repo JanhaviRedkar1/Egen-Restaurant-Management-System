@@ -12,21 +12,20 @@ import solution.egen.dao.LoginDAO;
 import solution.egen.exception.AppException;
 import solution.egen.model.auth;
 
-@Path("/authentication")
+@Path("/authentications")
 public class LoginController {
 	
 	@POST
-	@Path("/login/{user}/{ pwd}")
+	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public AppResponse tryLogin(
-			@PathParam("user") String username ,
-			@PathParam("pwd") String password) {
+	public AppResponse tryLogin(auth au)
+		 {
 		AppResponse resp = new AppResponse();
 
 		try {
 			LoginDAO dao = new LoginDAO();
-			boolean isAuthenticated = dao.authenticated(username , password);
+			boolean isAuthenticated = dao.authenticated(au);
 			if (isAuthenticated)
 			{
 				resp.setMessage("Login is Successful.");

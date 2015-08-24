@@ -21,6 +21,7 @@ RestAppModule.controller('ReservationController', function($http){
 				method:'GET',
 				url:"api/reservations/get/" + rctrl.reservation_id
 			}).success(function(data){
+				rctrl.reserve= data.payload;
 				console.log(data);
 			}).error(function(error){
 				console.log(error);
@@ -49,19 +50,18 @@ RestAppModule.controller('ReservationController', function($http){
 	
 	rctrl.updateReservations =function(){
 		
-		if(rctrl.reservation_id){
+		console.log(rctrl.newres);
 		$http({
 			method:'PUT',
-			url:"api/reservations/update/"  + rctrl.reservation_id ,
-			data:rctrl.newcust
+			url:"api/reservations/update" ,
+			data:rctrl.newres
 		}).success(function(data){
 			console.log(data);
-			rctrl.newcust = null;
+			rctrl.reserve= data.payload;
+			rctrl.newres = null;
 		}).error(function(error){
 			console.log(error);
 		});
-		}
-		
 	};
 	
 

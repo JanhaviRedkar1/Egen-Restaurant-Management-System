@@ -127,9 +127,9 @@ public class ReservationDAO {
 		return reserve;
 	}
 	
-public reservations updateReservations(String reservation_id) throws AppException {
+public reservations updateReservations(reservations reserve) throws AppException {
 		
-		reservations reserve= new reservations();
+		
 		Connection con = DBConnector.connect();
 		PreparedStatement ps= null;
 		ResultSet rs = null;
@@ -141,18 +141,7 @@ public reservations updateReservations(String reservation_id) throws AppExceptio
 			ps.setInt(4, reserve.getReservation_id());
 			ps.executeUpdate();
 			
-			rs=ps.getGeneratedKeys();
-			if(rs.next())
-			{
-				reserve.setReservation_id(rs.getInt("reservation_id"));
-				reserve.setReservation_name(rs.getString("reservation_name"));
-				reserve.setTable_no(rs.getString("table_no"));
-				reserve.setNo_of_people(rs.getInt("no_of_people"));
-				reserve.setDate(rs.getDate("date"));
-				reserve.setTime(rs.getString("time"));;
-				reserve.setEmail_id(rs.getString("email_id"));
-				reserve.setPhone_no(rs.getString("phone_no"));
-			}
+			
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

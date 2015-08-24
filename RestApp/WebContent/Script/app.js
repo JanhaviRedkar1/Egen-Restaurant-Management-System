@@ -7,18 +7,18 @@ RestAppModule.config(function($routeProvider) {
 		// Default Route
 		.when('/', {
 			templateUrl : 'Views/FrontPage.html',
-			controller  : 'CarouselController'
+			
 		})
 			// route for the home page
 			.when('/Home', {
 				templateUrl : 'Views/FrontPage.html',
-				controller  : 'CarouselController'
+				
 		})
 
 			// route for the login page
 			.when('/login', {
-				templateUrl : 'Views/Admin.html',
-				controller  : 'AdminController'
+				templateUrl : 'Views/Login.html',
+				controller  : 'LoginController'
 			})
 			// route for the Editing Reservation page
 			.when('/editReserve', {

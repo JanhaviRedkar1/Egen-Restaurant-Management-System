@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import solution.egen.exception.AppException;
-
+import solution.egen.model.auth;
 import solution.egen.utilities.DBConnector;
 
 public class LoginDAO {
-public boolean authenticated(String user , String pwd) throws AppException {
+public boolean authenticated(auth au) throws AppException {
 		
 		
 		
@@ -19,8 +19,8 @@ public boolean authenticated(String user , String pwd) throws AppException {
 		ResultSet rs = null;
 		try {
 			ps= con.prepareStatement("SELECT * FROM restaurant_egen.login where username =? && password= ?");
-			ps.setString(1, user);
-			ps.setString(2, pwd);
+			ps.setString(1, au.getUsername());
+			ps.setString(2, au.getPassword());
 			rs=ps.executeQuery();
 			if(rs != null){
 				return true;

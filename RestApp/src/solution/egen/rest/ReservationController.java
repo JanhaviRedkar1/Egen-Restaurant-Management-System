@@ -95,16 +95,16 @@ public class ReservationController {
 		}
 		
 		@PUT
-		@Path("/update/{id}")
+		@Path("/update")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
-		public AppResponse updateReservations(@PathParam("id") String reservation_id)
+		public AppResponse updateReservations(reservations reserve)
 		{
 			AppResponse resp=new AppResponse();
 			try {
 				ReservationDAO doa= new ReservationDAO();
-				reservations  reserve  = null;
-				reserve = doa.updateReservations(reservation_id);
+				
+				reserve = doa.updateReservations( reserve);
 				resp.setMessage("Reservation is updated");
 				resp.setPayload(reserve);
 			} catch (AppException e) {
