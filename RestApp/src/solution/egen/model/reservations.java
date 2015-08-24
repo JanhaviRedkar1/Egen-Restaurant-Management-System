@@ -2,7 +2,7 @@ package solution.egen.model;
 
 public class reservations {
 
-	private String reservation_id;
+	private int reservation_id;
 	private String reservation_name;
 	private String table_no;
 	private int no_of_people;
@@ -12,12 +12,7 @@ public class reservations {
 	private String phone_no;
 		
 	
-	public String getReservation_id() {
-		return reservation_id;
-	}
-	public void setReservation_id(String reservation_id) {
-		this.reservation_id = reservation_id;
-	}
+	
 	public String getReservation_name() {
 		return reservation_name;
 	}
@@ -59,6 +54,12 @@ public class reservations {
 	}
 	public void setPhone_no(String phone_no) {
 		this.phone_no = phone_no;
+	}
+	public int getReservation_id() {
+		return reservation_id;
+	}
+	public void setReservation_id(int reservation_id) {
+		this.reservation_id = reservation_id;
 	}
 	
 }

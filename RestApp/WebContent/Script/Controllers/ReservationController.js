@@ -30,14 +30,15 @@ RestAppModule.controller('ReservationController', function($http){
 
 		rctrl.addReservations =function(){
 	
-			
+			console.log(rctrl.newres);
 			$http({
 				method:'POST',
 				url:"api/reservations/add" ,
-				data:rctrl.newrest
+				data:rctrl.newres
 			}).success(function(data){
 				console.log(data);
-				rctrl.newcust = null;
+				rctrl.reserve= data.payload;
+				rctrl.newres = null;
 			}).error(function(error){
 				console.log(error);
 			});
@@ -51,7 +52,7 @@ RestAppModule.controller('ReservationController', function($http){
 		if(rctrl.reservation_id){
 		$http({
 			method:'PUT',
-			url:"api/reservations/update"  + rctrl.reservation_id ,
+			url:"api/reservations/update/"  + rctrl.reservation_id ,
 			data:rctrl.newcust
 		}).success(function(data){
 			console.log(data);
@@ -70,17 +71,18 @@ rctrl.deleteReservations =function(){
 	if(rctrl.reservation_id){
 		$http ({
 			method:'DELETE',
-			url: 'api/reservations/delete' + rctrl.reservation_id ,
-			data: rctrl.newres,
-			headers: {"Content-Type": "application/json;charset=utf-8"}
+			url: 'api/reservations/cancel/' + rctrl.reservation_id 
+			
+			//headers: {"Content-Type": "application/json;charset=utf-8"}
 		}).success(function(data){
-			//rctrl.reserve = data.payload;	
+			rctrl.reserve = data.payload;	
 			//location.reload();
 		}).error(function(data){
 			console.log(data);		
 		});
 	}
 	
+
 };
 
 

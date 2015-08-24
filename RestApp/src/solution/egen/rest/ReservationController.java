@@ -79,7 +79,7 @@ public class ReservationController {
 			AppResponse resp=new AppResponse();
 			try {
 				ReservationDAO doa= new ReservationDAO();
-				
+				System.out.println(reserve);
 				reserve =  doa.addReservations(reserve);
 				resp.setMessage("Customer is added");
 				resp.setPayload(reserve);
@@ -118,13 +118,13 @@ public class ReservationController {
 			
 		}
 		@DELETE
-		@Path("/delete/{id}")
-		@Consumes(MediaType.APPLICATION_JSON)
-		@Produces(MediaType.APPLICATION_JSON)
+		@Path("/cancel/{id}")
+		
 		public AppResponse deleteReservations(@PathParam("id") String reservation_id)
 		{
 			AppResponse resp=new AppResponse();
 			try {
+				System.out.println("deletion reached" +reservation_id);
 				ReservationDAO doa= new ReservationDAO();
 				reservations  reserve  = null;
 				reserve = doa.deleteReservations(reservation_id);

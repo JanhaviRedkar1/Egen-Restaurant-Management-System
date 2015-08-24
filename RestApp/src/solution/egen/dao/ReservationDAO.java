@@ -29,7 +29,8 @@ public class ReservationDAO {
 			rs=ps.executeQuery();
 			while(rs.next()){
 				reservations reserve = new reservations();
-				reserve.setReservation_id(rs.getString("reservation_id"));
+				reserve.setReservation_id(rs.getInt("reservation_id"));
+				
 				reserve.setReservation_name(rs.getString("reservation_name"));
 				reserve.setTable_no(rs.getString("table_no"));
 				reserve.setNo_of_people(rs.getInt("no_of_people"));
@@ -71,7 +72,7 @@ public class ReservationDAO {
 			rs=ps.getGeneratedKeys();
 			if(rs.next())
 			{
-				reserve.setReservation_id(rs.getString(1));
+				reserve.setReservation_id(rs.getInt(1));
 			}
 		
 		} catch (SQLException e) {
@@ -101,7 +102,7 @@ public class ReservationDAO {
 			if(rs.next()){
 				
 				
-				reserve.setReservation_id(rs.getString("reservation_id"));
+				reserve.setReservation_id(rs.getInt("reservation_id"));
 				reserve.setReservation_name(rs.getString("reservation_name"));
 				reserve.setTable_no(rs.getString("table_no"));
 				reserve.setNo_of_people(rs.getInt("no_of_people"));
@@ -137,13 +138,13 @@ public reservations updateReservations(String reservation_id) throws AppExceptio
 			ps.setInt(1, reserve.getNo_of_people());
 			ps.setDate(2, reserve.getDate());
 			ps.setString(3, reserve.getTime());
-			ps.setString(4, reserve.getReservation_id());
+			ps.setInt(4, reserve.getReservation_id());
 			ps.executeUpdate();
 			
 			rs=ps.getGeneratedKeys();
 			if(rs.next())
 			{
-				reserve.setReservation_id(rs.getString("reservation_id"));
+				reserve.setReservation_id(rs.getInt("reservation_id"));
 				reserve.setReservation_name(rs.getString("reservation_name"));
 				reserve.setTable_no(rs.getString("table_no"));
 				reserve.setNo_of_people(rs.getInt("no_of_people"));
@@ -173,14 +174,16 @@ public reservations deleteReservations(String reservation_id) throws AppExceptio
 	PreparedStatement ps= null;
 	ResultSet rs = null;
 	try {
-		ps= con.prepareStatement("DELETE from restaurant_egen.reservations  WHERE reservation_id=?");
+		System.out.println("reservation_id" +reservation_id );
+		int res123= Integer.parseInt(reservation_id);
+		ps= con.prepareStatement("DELETE from restaurant_egen.reservations WHERE reservation_id= ?");
 
-		ps.setString(1, reserve.getReservation_id());
+		ps.setInt(1, res123);
 		ps.executeUpdate();
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
+		//e.printStackTrace();
 		throw new AppException("Error in Fetching records from Database" , e.getCause());
 	}
 	finally{
