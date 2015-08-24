@@ -1,0 +1,17 @@
+body {
+  margin-top: 10px;
+}
+
+#main
+{
+	outline-style: solid;
+    outline-width: 1px;
+    outline_color: Green;
+    margin-top: 50px;
+    
+    margin-right: 150px;
+    margin-left: 150px;
+}
+#container{
+	width:100% !important;
+}

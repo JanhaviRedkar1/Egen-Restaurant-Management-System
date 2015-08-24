@@ -1,0 +1,85 @@
+	<!DOCTYPE html>
+<html data-ng-app="restApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Restaurant Management System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Styles/style.css" >
+</head>
+
+<body>
+<header>
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">New Restaurant</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed = true">
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#/Home" >Home</a></li>
+            
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-ng-controller="DropdownController">Reservations <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/addReserve">New Reservation</a></li>
+              <li><a href="#/editReserve">Edit Reservation</a></li>
+              <li><a href="#/cancelReserve">Cancel Reservation</a></li>
+              
+            </ul>
+          </li>
+          
+        
+             
+            <li ><a href="#/Contact">Contact Us</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a data-toggle="modal" href="#/login" ><span class="glyphicon glyphicon-log-in"></span>Administration Login</a></li>
+
+
+        </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+    </div>
+  </header>
+  <hr>
+  <section  data-ng-view>
+    
+  </section>
+  <hr>
+  <footer>
+    <div class="container">
+      2015 &copy; Egen Solutions Inc.  
+    </div>
+  </footer>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+ <script data-require="ui-bootstrap@0.5.0" data-semver="0.5.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+
+<script type="text/javascript" src="Script/app.js"></script>	
+<script type="text/javascript" src="Script/Controllers/main-ctrl.js"></script>
+<script type="text/javascript" src="Script/Controllers/HomeController.js"></script>
+<script type="text/javascript" src="Script/Controllers/LoginController.js"></script>
+<script type="text/javascript" src="Script/Controllers/DropdownController.js"></script>
+<script type="text/javascript" src="Script/Controllers/AdminController.js"></script>
+<script type="text/javascript" src="Script/Controllers/CorousalController.js"></script>
+<script type="text/javascript" src="Script/Controllers/ReservationController.js"></script>
+
+</body>
+</html>

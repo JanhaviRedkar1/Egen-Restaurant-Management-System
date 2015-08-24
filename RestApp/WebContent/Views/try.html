@@ -1,0 +1,40 @@
+
+	<div data-ng-controller="ReservationController as rctrl">
+	<button data-ng-click="rctrl.getallReservations()"></button>
+	<input TYPE="text" placeholder="Customer ID" data-ng-model="rctrl.reservation_id" required>
+<button data-ng-click="rctrl.getReservation()">Get Person</button>
+	
+  <form data-ng-submit="rctrl.addReservations()">
+  <div>
+  <label>Customer Name</label>
+  <input type="text" data-ng-model="rctrl.newcust.reservation_name">
+  </div>
+  <div>
+  <label>Email</label>
+  <input type="email" data-ng-model="rctrl.newcust.email_id">
+  </div>
+  <div>
+  <label>Phone</label>
+  <input type="tel" data-ng-model="rctrl.newcust.phone_no">
+  </div>
+  <div>
+  <label>Table_No</label>
+  <input type="Number" data-ng-model="rctrl.newcust.table_no">
+  </div>
+  <div>
+  <label>Number of People</label>
+  <input type="Number" data-ng-model="rctrl.newcust.no_of_people">
+  </div>
+  <div>
+  <label>Date</label>
+  <input type="Date" data-ng-model="rctrl.newcust.date">
+  </div>
+  <div>
+  <label>Time</label>
+  <input type="Time" data-ng-model="rctrl.newcust.time">
+  </div>
+  <div>
+  <button type="submit" >Reserve Table</button>
+  </div>
+  </form>
+</div>

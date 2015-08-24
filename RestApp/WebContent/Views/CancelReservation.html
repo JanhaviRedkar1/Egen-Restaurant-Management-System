@@ -1,0 +1,20 @@
+<div data-ng-controller = "ReservationController as rctrl">
+<div class="jumbotron text-left">
+
+<div class ="container">
+<h2>Cancel Reservation</h2>
+	<form name="form" role="form" data-ng-submit="rctrl.deleteReservations()" >
+	<div class="form-group">
+        <label for="id">Reservation Number:</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="id" id="id" class="form-control" data-ng-model="rctrl.newres.reservation_id" required />
+        <span data-ng-show="form.id.$dirty && form.id.$error.required" class="help-block">Enter Your Reservation Number</span>
+    </div>
+    
+    <div class="form-actions">
+        <button  type="submit">Cancel Reserve</button>
+         </div>
+</form>
+</div>
+</div>
+</div>

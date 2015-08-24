@@ -1,0 +1,39 @@
+<div data-ng-controller = "ReservationController as rctrl">
+<div class="jumbotron text-center">
+
+<div class ="container">
+<h2>Edit Reservation</h2> 
+	<form name="form" data-ng-submit="rctrl.updateReservations()" role="form" >
+	<div class="form-group">
+        <label for="id">Reservation_Number:</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="id" id="id" class="form-control" data-ng-model="rctrl.newres.reservation_id" required />
+        <span data-ng-show="form.id.$dirty && form.id.$error.required" class="help-block">Enter Your Reservation Number</span>
+    </div>
+    <div class="form-group">
+        <label for="noofppl">Total Number of People:</label>
+        <i class="fa fa-lock"></i>
+        <input type="number" name="noofppl" id="noofppl" class="form-control" data-ng-model="rctrl.newres.no_of_people" >
+        <span data-ng-show="form.noofppl.$dirty && form.noofppl.$error.required" class="help-block">How many People?</span>
+    </div>
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <i class="fa fa-lock"></i>
+        <input type="date" name="date" id="date" class="form-control" data-ng-model="rctrl.newres.date" required />
+        <span data-ng-show="form.date.$dirty && form.date.$error.required" class="help-block">Choose a Date</span>
+    </div>
+    <div class="form-group">
+        <label for="time">Time:</label>
+        <i class="fa fa-lock"></i>
+        <input type="text" name="time" id="time" class="form-control" data-ng-model="rctrl.newres.time" required />
+        <span data-ng-show="form.time.$dirty && form.time.$error.required" class="help-block">Choose a Time:</span>
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" data-ng-disabled="form.$invalid || dataLoading" class="btn btn-danger">Edit Reservation</button>
+        <img data-ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    </div>
+</form>
+</div>
+</div>
+</div>

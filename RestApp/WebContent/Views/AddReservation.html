@@ -1,0 +1,53 @@
+<div data-ng-controller = "ReservationController as rctrl">
+<div class="jumbotron text-left">
+
+<div class ="container">
+<h2>New Reservation</h2>
+	<form name="form" role="form" data-ng-submit="rctrl.addReservations()" >
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="name" id="name" class="form-control" data-ng-model="rctrl.newres.reservation_name" required />
+        <span data-ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
+    </div>
+    <div class="form-group">
+        <label for="email">Email ID:</label>
+        <i class="fa fa-lock"></i>
+        <input type="email" name="email" id="email" class="form-control" data-ng-model="rctrl.newres.email_id" required />
+        <span data-ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email_ID is required</span>
+    </div>
+    <div class="form-group">
+        <label for="tel">Phone_No:</label>
+        <i class="fa fa-lock"></i>
+        <input type="tel" name="tel" id="tel" class="form-control" data-ng-model="rctrl.newres.phone_no" required />
+        <span data-ng-show="form.tel.$dirty && form.tel.$error.required" class="help-block">Contact Number is required</span>
+    </div>
+    <div class="form-group">
+        <label for="noofppl">Total Number of People:</label>
+        <i class="fa fa-lock"></i>
+        <input type="number" name="noofppl" id="noofppl" class="form-control" data-ng-model="rctrl.newres.no_of_people" required />
+        <span data-ng-show="form.noofppl.$dirty && form.noofppl.$error.required" class="help-block">Email_ID is required</span>
+    </div>
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <i class="fa fa-lock"></i>
+        <input type="date" name="date" id="date" class="form-control" data-ng-model="rctrl.newres.date" required />
+        <span data-ng-show="form.date.$dirty && form.date.$error.required" class="help-block">Choose a Date</span>
+    </div>
+    <div class="form-group">
+        <label for="time">Time:</label>
+        <i class="fa fa-lock"></i>
+        <input type="time" name="time" id="time" class="form-control" data-ng-model="rctrl.newres.time" required />
+        <span data-ng-show="form.time.$dirty && form.time.$error.required" class="help-block">Choose a Time:</span>
+    </div>
+    
+    <div class="form-actions">
+       <!--   <button type="submit" data-ng-disabled="form.$invalid || dataLoading" class="btn btn-danger" data-ng-click="rctrl.addReservations()">Reserve Table</button>
+        <img data-ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    -->
+    <button  type="submit">Reserve</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
