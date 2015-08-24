@@ -13,22 +13,25 @@ public class LoginDAO {
 public boolean authenticated(auth au) throws AppException {
 		
 		
-		
+		auth af=new auth();
 		Connection con = DBConnector.connect();
 		PreparedStatement ps= null;
 		ResultSet rs = null;
+		boolean a;
 		try {
-			ps= con.prepareStatement("SELECT * FROM restaurant_egen.login where username =? && password= ?");
-			ps.setString(1, au.getUsername());
-			ps.setString(2, au.getPassword());
+			ps= con.prepareStatement("SELECT * FROM restaurant_egen.login ");	
 			rs=ps.executeQuery();
-			if(rs != null){
-				return true;
-			}
-			else
+			while(rs.next())
 			{
-				return false;
+				
+				af.setUsername(rs.getString("username"));
+				af.setPassword(rs.getString("password"));
+				
+				
 			}
+		
+			a = (au.getUsername().equals(af.getUsername())) && (au.getPassword().equals(af.getPassword()));
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,7 +40,7 @@ public boolean authenticated(auth au) throws AppException {
 		finally{
 			DBConnector.closeResource(ps, rs, con);
 				}
-		
+		return a;
 	}
 
 

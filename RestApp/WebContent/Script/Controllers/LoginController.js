@@ -1,60 +1,42 @@
 
 RestAppModule.controller('LoginController', function($http){
 		var lctrl = this;
-		
-
-		
-		lctrl.tryLogin= function(){
-			console.log(lctrl.auth);
-			
-			
-			
-			$http({
-				method:'POST',
-				url:"api/authentications/login" ,
-				data:lctrl.auth
+			$http ({
+				method: 'GET',
+				url: 'api/authenticate/isLogin'
 			}).success(function(data){
-				console.log(data);
+				if(data.status=='success')
+				loginCtrl.isLoggedIn = true;
+				else
+				loginCtrl.isLoggedIn = false;
+					
+			}).error(function(data){
+				console.log(data);		
+			});
+		
+		lctrl.login = function() {
+			
+			$http ({
+				method: 'POST',
+				url: 'api/authenticate/login',
+				data: lctrl.auth
 				
-				if(data.status = "success")
+			}).success(function(data){
+				if(data.status=='success')
 					{
-					lctrl.loogedIn =true;
+					lctrl.isLoggedIn = true;
+					$location.path('/admin');
 					}
 				else
 					{
-					lctrl.loggedIn =false;
+					lctrl.isLoggedIn = false;
 					}
-			}).error(function(error){
-				console.log(error);
+				
+			}).error(function(data){
+				console.log(data);		
 			});
-			
-		};
-
-});
-	
-
-RestAppModule.controller('LoginController', function($http){
-		var lctrl = this;
+	};
 		
-		rctrl.addReservations =function(){
-	
-			console.log(rctrl.newres);
-			$http({
-				method:'POST',
-				url:"api/reservations/add" ,
-				data:rctrl.newres
-			}).success(function(data){
-				console.log(data);
-				rctrl.reserve= data.payload;
-				rctrl.newres = null;
-			}).error(function(error){
-				console.log(error);
-			});
-			
-		};
-		
-	
-	
 		
 
 

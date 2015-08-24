@@ -14,6 +14,23 @@ RestAppModule.controller('AdminController', function($http){
 			});
 	
 
+			
+			actrl.updateReservations =function(){
+				
+				console.log(actrl.newres);
+				$http({
+					method:'PUT',
+					url:"api/reservations/update" ,
+					data:actrl.newres
+				}).success(function(data){
+					console.log(data);
+					actrl.reserve= data.payload;
+					actrl.newres = null;
+				}).error(function(error){
+					console.log(error);
+				});
+			};
+			
 
 		actrl.getReservation =function(){
 			

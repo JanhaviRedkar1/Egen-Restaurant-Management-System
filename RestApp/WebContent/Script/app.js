@@ -35,7 +35,15 @@ RestAppModule.config(function($routeProvider) {
 			.when('/addReserve', {
 				templateUrl : 'Views/AddReservation.html',
 				controller  : 'ReservationController'
-			});
+			})
+			.when('/admin/:reservation_id', {
+				templateUrl : 'Views/ReservView.html',
+				controller  : 'AdminController'
+			})
+		.when('/admin', {
+			templateUrl : 'Views/Admin.html',
+			controller  : 'AdminController'
+		});
 	});
 
 	

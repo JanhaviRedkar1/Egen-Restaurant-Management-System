@@ -1,7 +1,7 @@
 <div data-ng-controller="LoginController as lctrl">
 <div class="jumbotron text-center">
 <div class ="container">
-	<form name="form" data-ng-submit="lctrl.tryLogin" role="form " data-ng-show="lctrl.loggedIn">
+	<form name="form" role="form " data-ng-submit="lctrl.login()" data-ng-show="!loginCtrl.isLoggedIn || loginCtrl.isLoggedOut">
     <div class="form-group">
         <label for="username">Username</label>
         <i class="fa fa-key"></i>

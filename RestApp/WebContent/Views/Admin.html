@@ -4,23 +4,26 @@
     <table class="table table-responsive">
     <thead>
       <tr>
+      	
         <th>Reservation Number</th>
         <th>Reservation Name</th>
         <th>Number of People</th>
         <th>Table Number</th>
         <th>Date</th>
         <th>Time</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr data-ng-repeat="r in actrl.reserve">
-        
+     
         <td>{{r.reservation_id}}</td>
         <td>{{r.reservation_name}}</td>
         <td>{{r.no_of_people}}</td>
         <td>{{r.table_no}}</td>
         <td>{{r.date}}</td>
         <td>{{r.time}}</td>
+        <td><a data-ng-href="#/admin/{{r.reservation_id}}"><button >Update</button></a> </td>
         
         
       </tr>

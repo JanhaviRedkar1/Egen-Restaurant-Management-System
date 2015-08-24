@@ -1,0 +1,22 @@
+<div data-ng-controller = "AdminController as actrl">
+<div class="jumbotron text-left">
+
+<div class ="container">
+<h2>Edit Reservation</h2>
+	<form name="form" role="form" data-ng-submit="actrl.updateReservations()" >
+	<div class="form-group">
+        <label for="id">Table Number:</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="id" id="id" class="form-control" data-ng-model="actrl.newres.reservation_id" required />
+        <span data-ng-show="form.id.$dirty && form.id.$error.required" class="help-block">Enter Your Reservation Number</span>
+    </div>
+    
+    <div class="form-actions">
+         <!--   <button type="submit" data-ng-disabled="form.$invalid || dataLoading" class="btn btn-danger" data-ng-click="rctrl.addReservations()">Reserve Table</button>
+        <img data-ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    -->
+    <button  type="submit">Update</button> </div>
+</form>
+</div>
+</div>
+</div>
