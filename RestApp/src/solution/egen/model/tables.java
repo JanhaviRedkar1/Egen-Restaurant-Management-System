@@ -4,6 +4,7 @@ public class tables {
 	private int table_no;
 	private int capacity;
 	private int status;
+	private String reservation_id;
 	public int getTable_no() {
 		return table_no;
 	}
@@ -21,6 +22,12 @@ public class tables {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	public String getReservation_id() {
+		return reservation_id;
+	}
+	public void setReservation_id(String reservation_id) {
+		this.reservation_id = reservation_id;
 	}
 	
 	

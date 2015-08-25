@@ -1,14 +1,14 @@
 
-RestAppModule.controller('LoginController', function($http){
+RestAppModule.controller('LoginController', function($http ,$location){
 		var lctrl = this;
 			$http ({
 				method: 'GET',
-				url: 'api/authenticate/isLogin'
+				url: 'api/authentications/isLogin'
 			}).success(function(data){
 				if(data.status=='success')
-				loginCtrl.isLoggedIn = true;
+				lctrl.isLoggedIn = true;
 				else
-				loginCtrl.isLoggedIn = false;
+				lctrl.isLoggedIn = false;
 					
 			}).error(function(data){
 				console.log(data);		
@@ -18,7 +18,7 @@ RestAppModule.controller('LoginController', function($http){
 			
 			$http ({
 				method: 'POST',
-				url: 'api/authenticate/login',
+				url: 'api/authentications/login',
 				data: lctrl.auth
 				
 			}).success(function(data){

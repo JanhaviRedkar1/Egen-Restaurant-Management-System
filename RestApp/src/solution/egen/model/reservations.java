@@ -4,7 +4,7 @@ public class reservations {
 
 	private int reservation_id;
 	private String reservation_name;
-	private String table_no;
+	private int table_no;
 	private int no_of_people;
 	private java.sql.Date date;
 	private String time;
@@ -19,12 +19,7 @@ public class reservations {
 	public void setReservation_name(String reservation_name) {
 		this.reservation_name = reservation_name;
 	}
-	public String getTable_no() {
-		return table_no;
-	}
-	public void setTable_no(String table_no) {
-		this.table_no = table_no;
-	}
+	
 	public int getNo_of_people() {
 		return no_of_people;
 	}
@@ -60,6 +55,12 @@ public class reservations {
 	}
 	public void setReservation_id(int reservation_id) {
 		this.reservation_id = reservation_id;
+	}
+	public int getTable_no() {
+		return table_no;
+	}
+	public void setTable_no(int table_no) {
+		this.table_no = table_no;
 	}
 	
 }

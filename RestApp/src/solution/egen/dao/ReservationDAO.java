@@ -32,7 +32,6 @@ public class ReservationDAO {
 				reserve.setReservation_id(rs.getInt("reservation_id"));
 				
 				reserve.setReservation_name(rs.getString("reservation_name"));
-				reserve.setTable_no(rs.getString("table_no"));
 				reserve.setNo_of_people(rs.getInt("no_of_people"));
 				reserve.setDate(rs.getDate("date"));
 				reserve.setTime(rs.getString("time"));;
@@ -59,14 +58,14 @@ public class ReservationDAO {
 		PreparedStatement ps= null;
 		ResultSet rs = null;
 		try {
-			ps= con.prepareStatement("INSERT INTO `restaurant_egen`.`reservations` ( `reservation_name`, `table_no`, `no_of_people`, `date`, `time`, `email_id`, `phone_no`) VALUES  (? ,?,?,?,?,?,?)" , PreparedStatement.RETURN_GENERATED_KEYS);
+			ps= con.prepareStatement("INSERT INTO `restaurant_egen`.`reservations` ( `reservation_name`, `no_of_people`, `date`, `time`, `email_id`, `phone_no`) VALUES  (? ,?,?,?,?,?)" , PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, reserve.getReservation_name());
-			ps.setString(2, reserve.getTable_no());
-			ps.setInt(3, reserve.getNo_of_people());
-			ps.setDate(4, reserve.getDate());
-			ps.setString(5, reserve.getTime());
-			ps.setString(6, reserve.getEmail_id());
-			ps.setString(7, reserve.getPhone_no());
+			
+			ps.setInt(2, reserve.getNo_of_people());
+			ps.setDate(3, reserve.getDate());
+			ps.setString(4, reserve.getTime());
+			ps.setString(5, reserve.getEmail_id());
+			ps.setString(6, reserve.getPhone_no());
 			ps.executeUpdate();
 			
 			rs=ps.getGeneratedKeys();
@@ -104,7 +103,6 @@ public class ReservationDAO {
 				
 				reserve.setReservation_id(rs.getInt("reservation_id"));
 				reserve.setReservation_name(rs.getString("reservation_name"));
-				reserve.setTable_no(rs.getString("table_no"));
 				reserve.setNo_of_people(rs.getInt("no_of_people"));
 				reserve.setDate(rs.getDate("date"));
 				reserve.setTime(rs.getString("time"));;
@@ -154,7 +152,33 @@ public reservations updateReservations(reservations reserve) throws AppException
 		return reserve;
 	}
 	
+/*public reservations updateTableInfo(int table_no, String reservation_id) throws AppException {
 	
+	reservations reserve=new reservations();
+	Connection con = DBConnector.connect();
+	PreparedStatement ps= null;
+	ResultSet rs = null;
+	try {
+		ps= con.prepareStatement("UPDATE restaurant_egen.reservations SET table_no=? WHERE reservation_id=?");
+		ps.setInt(1, table_no);
+		ps.setString(2, reservation_id);
+		ps.executeUpdate();
+		
+		
+	
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		throw new AppException("Error in Fetching records from Database" , e.getCause());
+	}
+	finally{
+		DBConnector.closeResource(ps, rs, con);
+			}
+	return reserve;
+}
+
+*/
+
 
 public reservations deleteReservations(String reservation_id) throws AppException {
 	

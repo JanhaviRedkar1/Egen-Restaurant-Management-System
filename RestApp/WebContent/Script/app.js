@@ -36,7 +36,7 @@ RestAppModule.config(function($routeProvider) {
 				templateUrl : 'Views/AddReservation.html',
 				controller  : 'ReservationController'
 			})
-			.when('/admin/:reservation_id', {
+			.when('/admin/:reservation_id/:no_of_people', {
 				templateUrl : 'Views/ReservView.html',
 				controller  : 'AdminController'
 			})

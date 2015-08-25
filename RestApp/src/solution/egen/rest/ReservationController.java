@@ -117,6 +117,34 @@ public class ReservationController {
 			 return resp;
 			
 		}
+		/*
+		@PUT
+		@Path("/updateTableinfo/{tab_no}/{id}")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.APPLICATION_JSON)
+		public AppResponse updateTableInfo(
+				@PathParam("tab_no") int table_no,
+				@PathParam("id") String reservation_id)
+		{
+			AppResponse resp=new AppResponse();
+			try {
+				ReservationDAO doa= new ReservationDAO();
+				reservations  reserve  = null;
+				
+				reserve = doa.updateTableInfo( table_no,reservation_id);
+				resp.setMessage("Reservation is updated"); 
+				resp.setPayload(reserve);
+			} catch (AppException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				resp.setStatus(AppResponse.ERROR);
+				resp.setMessage(e.getMessage());
+				
+			}
+			 return resp;
+			
+		}
+		*/
 		@DELETE
 		@Path("/cancel/{id}")
 		

@@ -45,7 +45,19 @@ RestAppModule.controller('AdminController', function($http){
 			});
 			}
 		};
-
+		actrl.getTables =function(){
+			
+			if(actrl.reservation_id){
+			$http({
+				method:'GET',
+				url:"api/tables/get/" + actrl.capacity
+			}).success(function(data){
+				console.log(data);
+			}).error(function(error){
+				console.log(error);
+			});
+			}
+		};
 		
 	
 	
