@@ -1,4 +1,4 @@
-
+(function(){
 RestAppModule.controller('LoginController', function($http ,$location){
 		var lctrl = this;
 			$http ({
@@ -49,3 +49,4 @@ RestAppModule.controller('LoginController', function($http ,$location){
 	
 	
 });
+})();

@@ -1,4 +1,4 @@
-
+(function(){
 RestAppModule.controller('AdminUpdateController', function($http , $routeParams){
 		var auctrl = this;
 		var reserve = null;
@@ -52,3 +52,4 @@ RestAppModule.controller('AdminUpdateController', function($http , $routeParams)
 	
 	
 });
+})();

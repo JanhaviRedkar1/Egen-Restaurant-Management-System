@@ -1,4 +1,4 @@
-
+(function(){
 RestAppModule.controller('AdminController', function($http){
 		var actrl = this;
 		var reserve = null;
@@ -62,3 +62,4 @@ RestAppModule.controller('AdminController', function($http){
 	
 	
 });
+})();

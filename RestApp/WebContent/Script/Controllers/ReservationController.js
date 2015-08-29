@@ -1,4 +1,4 @@
-
+(function(){
 RestAppModule.controller('ReservationController', function($http){
 		var rctrl = this;
 		rctrl.getallReservations =function(){
@@ -93,3 +93,4 @@ rctrl.deleteReservations =function(){
 	
 	
 });
+})();
